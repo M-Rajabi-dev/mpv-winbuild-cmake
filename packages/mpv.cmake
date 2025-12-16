@@ -33,7 +33,6 @@ ExternalProject_Add(mpv
         -Dvulkan=disabled
         -Dvapoursynth=disabled
         -Dshaderc=disabled
-        -Dlibplacebo=disabled
         -Dcuda-hwaccel=disabled
         -Dcuda-interop=disabled
         -Dgl=disabled

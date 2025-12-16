@@ -31,6 +31,8 @@ ExternalProject_Add(ffmpeg
         --disable-filter=subtitles
         --enable-librubberband
         --enable-openssl
+        --enable-libxml2
+        --enable-zlib
         --disable-doc
         --disable-ffplay
         --disable-ffprobe

@@ -30,7 +30,6 @@ ExternalProject_Add(ffmpeg
         --disable-openssl
         --disable-libxml2
         --enable-zlib
-        --enable-libiconv
         --disable-doc
         --disable-ffplay
         --disable-ffprobe

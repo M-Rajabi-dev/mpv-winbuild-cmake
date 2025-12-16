@@ -2,6 +2,7 @@ ExternalProject_Add(mpv
     DEPENDS
         ffmpeg
         libiconv
+        zlib
     GIT_REPOSITORY https://github.com/mpv-player/mpv.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
@@ -44,7 +45,7 @@ ExternalProject_Add(mpv
         -Dzimg=disabled
         -Dlibass=disabled
         -Dfribidi=disabled
-        -Diconv=auto
+        -Diconv=enabled
     BUILD_COMMAND ${EXEC} LTO_JOB=1 PDB=1 ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1

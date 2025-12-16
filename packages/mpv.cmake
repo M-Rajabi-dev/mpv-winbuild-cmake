@@ -7,7 +7,6 @@ ExternalProject_Add(mpv
     GIT_CLONE_FLAGS "--filter=tree:0"
     UPDATE_COMMAND ""
     CONFIGURE_COMMAND ${EXEC} CONF=1 meson setup <BINARY_DIR> <SOURCE_DIR>
-        --wipe
         --prefix=${MINGW_INSTALL_PREFIX}
         --libdir=${MINGW_INSTALL_PREFIX}/lib
         --cross-file=${MESON_CROSS}
@@ -50,6 +49,14 @@ ExternalProject_Add(mpv
     BUILD_COMMAND ${EXEC} LTO_JOB=1 PDB=1 ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1
+)
+
+ExternalProject_Add_Step(mpv nuke-existing-build
+    DEPENDEES update
+    DEPENDERS configure
+    COMMAND ${CMAKE_COMMAND} -E remove_directory <BINARY_DIR>
+    COMMAND ${CMAKE_COMMAND} -E make_directory <BINARY_DIR>
+    ALWAYS 1
 )
 
 ExternalProject_Add_Step(mpv strip-binary

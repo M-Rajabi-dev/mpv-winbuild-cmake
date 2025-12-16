@@ -9,6 +9,7 @@ list(APPEND ep
     zlib
     zstd
     bzip2
+    brotli
     libiconv
     expat
     libxml2

@@ -18,6 +18,8 @@ ExternalProject_Add(ffmpeg
         --enable-runtime-cpudetect
         --enable-gpl
         --enable-version3
+        --disable-x86asm
+        --disable-inline-asm
         --disable-libass
         --disable-libfreetype
         --disable-libfribidi

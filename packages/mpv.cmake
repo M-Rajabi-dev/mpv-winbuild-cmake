@@ -1,4 +1,4 @@
-# Set C Flags globally to avoid Meson quoting issues
+# Fix for DXGI redefinition error and warnings
 set(ENV{CFLAGS} "$ENV{CFLAGS} -Wno-error -DHAVE_DXGI_DEBUG_D3D11=1")
 
 ExternalProject_Add(mpv
@@ -25,10 +25,8 @@ ExternalProject_Add(mpv
         -Dpdf-build=disabled
         -Dlua=disabled
         -Djavascript=disabled
-        -Dlibarchive=disabled
         -Dlibbluray=disabled
         -Ddvdnav=disabled
-        -Duchardet=disabled
         -Drubberband=disabled
         -Dlcms2=disabled
         -Dopenal=disabled
@@ -43,8 +41,6 @@ ExternalProject_Add(mpv
         -Dplain-gl=disabled
         -Dgl-dxinterop=disabled
         -Dzimg=disabled
-        -Dlibass=disabled
-        -Dfribidi=disabled
         -Diconv=enabled
     BUILD_COMMAND ${EXEC} LTO_JOB=1 PDB=1 ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""

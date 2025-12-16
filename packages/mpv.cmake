@@ -1,6 +1,3 @@
-# Fix for DXGI redefinition error and warnings
-set(ENV{CFLAGS} "$ENV{CFLAGS} -Wno-error -DHAVE_DXGI_DEBUG_D3D11=1")
-
 ExternalProject_Add(mpv
     DEPENDS
         ffmpeg
@@ -41,7 +38,10 @@ ExternalProject_Add(mpv
         -Dplain-gl=disabled
         -Dgl-dxinterop=disabled
         -Dzimg=disabled
+        -Dlibass=disabled
+        -Dfribidi=disabled
         -Diconv=enabled
+        -Dc_args=-DHAVE_DXGI_DEBUG_D3D11=1
     BUILD_COMMAND ${EXEC} LTO_JOB=1 PDB=1 ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1

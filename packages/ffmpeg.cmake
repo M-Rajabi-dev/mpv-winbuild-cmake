@@ -3,7 +3,6 @@ ExternalProject_Add(ffmpeg
         bzip2
         openssl
         rubberband
-        libxml2
     GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--sparse --filter=tree:0"
@@ -24,9 +23,12 @@ ExternalProject_Add(ffmpeg
         --disable-libfribidi
         --disable-libfontconfig
         --disable-libharfbuzz
+        --disable-filter=drawtext
+        --disable-filter=ass
+        --disable-filter=subtitles
         --enable-librubberband
         --enable-openssl
-        --enable-libxml2
+        --disable-libxml2
         --disable-doc
         --disable-ffplay
         --disable-ffprobe

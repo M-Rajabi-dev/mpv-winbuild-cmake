@@ -22,8 +22,6 @@ ExternalProject_Add(mpv
         -Dpdf-build=disabled
         -Dlua=disabled
         -Djavascript=disabled
-        -Dsdl2=disabled
-        -Dsdl2-gamepad=disabled
         -Dlibarchive=disabled
         -Dlibbluray=disabled
         -Ddvdnav=disabled

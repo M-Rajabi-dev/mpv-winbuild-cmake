@@ -1,10 +1,6 @@
 ExternalProject_Add(ffmpeg
     DEPENDS
         bzip2
-        openssl
-        rubberband
-        libiconv
-        libxml2
         zlib
     GIT_REPOSITORY https://github.com/FFmpeg/FFmpeg.git
     SOURCE_DIR ${SOURCE_LOCATION}
@@ -29,9 +25,9 @@ ExternalProject_Add(ffmpeg
         --disable-filter=drawtext
         --disable-filter=ass
         --disable-filter=subtitles
-        --enable-librubberband
-        --enable-openssl
-        --enable-libxml2
+        --disable-librubberband
+        --disable-openssl
+        --disable-libxml2
         --enable-zlib
         --disable-doc
         --disable-ffplay

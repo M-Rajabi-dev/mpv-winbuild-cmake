@@ -7,45 +7,46 @@ ExternalProject_Add(mpv
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
     UPDATE_COMMAND ""
-    CONFIGURE_COMMAND ${EXEC} CONF=1 meson setup <BINARY_DIR> <SOURCE_DIR>
-        --prefix=${MINGW_INSTALL_PREFIX}
-        --libdir=${MINGW_INSTALL_PREFIX}/lib
-        --cross-file=${MESON_CROSS}
-        --default-library=shared
-        --prefer-static
-        -Ddebug=true
-        -Db_ndebug=true
-        -Doptimization=3
-        -Db_lto=true
-        ${mpv_lto_mode}
-        -Dlibmpv=true
-        -Dpdf-build=disabled
-        -Dlua=disabled
-        -Djavascript=disabled
-        -Dsdl2=disabled
-        -Dsdl2-gamepad=disabled
-        -Dlibarchive=disabled
-        -Dlibbluray=disabled
-        -Ddvdnav=disabled
-        -Duchardet=disabled
-        -Drubberband=disabled
-        -Dlcms2=disabled
-        -Dopenal=disabled
-        -Dspirv-cross=disabled
-        -Dvulkan=disabled
-        -Dvapoursynth=disabled
-        -Dshaderc=disabled
-        -Dlibplacebo=disabled
-        -Dcuda-hwaccel=disabled
-        -Dcuda-interop=disabled
-        -Dgl=disabled
-        -Degl=disabled
-        -Dplain-gl=disabled
-        -Dgl-dxinterop=disabled
-        -Dzimg=disabled
-        -Dlibass=disabled
-        -Dfribidi=disabled
-        -Diconv=enabled
+    CONFIGURE_COMMAND ${EXEC} CONF=1 sh -c "meson setup <BINARY_DIR> <SOURCE_DIR> \
+        --prefix=${MINGW_INSTALL_PREFIX} \
+        --libdir=${MINGW_INSTALL_PREFIX}/lib \
+        --cross-file=${MESON_CROSS} \
+        --default-library=shared \
+        --prefer-static \
+        -Ddebug=true \
+        -Db_ndebug=true \
+        -Doptimization=3 \
+        -Db_lto=true \
+        ${mpv_lto_mode} \
+        -Dlibmpv=true \
+        -Dpdf-build=disabled \
+        -Dlua=disabled \
+        -Djavascript=disabled \
+        -Dsdl2=disabled \
+        -Dsdl2-gamepad=disabled \
+        -Dlibarchive=disabled \
+        -Dlibbluray=disabled \
+        -Ddvdnav=disabled \
+        -Duchardet=disabled \
+        -Drubberband=disabled \
+        -Dlcms2=disabled \
+        -Dopenal=disabled \
+        -Dspirv-cross=disabled \
+        -Dvulkan=disabled \
+        -Dvapoursynth=disabled \
+        -Dshaderc=disabled \
+        -Dlibplacebo=disabled \
+        -Dcuda-hwaccel=disabled \
+        -Dcuda-interop=disabled \
+        -Dgl=disabled \
+        -Degl=disabled \
+        -Dplain-gl=disabled \
+        -Dgl-dxinterop=disabled \
+        -Dzimg=disabled \
+        -Dlibass=disabled \
+        -Dfribidi=disabled \
+        -Diconv=auto \
+        || (cat <BINARY_DIR>/meson-logs/meson-log.txt && exit 1)"
     BUILD_COMMAND ${EXEC} LTO_JOB=1 PDB=1 ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1

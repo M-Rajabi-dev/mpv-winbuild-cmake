@@ -38,8 +38,6 @@ ExternalProject_Add(mpv
         -Dplain-gl=disabled
         -Dgl-dxinterop=disabled
         -Dzimg=disabled
-        -Dlibass=disabled
-        -Dfribidi=disabled
         -Diconv=enabled
         -Dd3d11=enabled
         -Dc_args=-DHAVE_DXGI_DEBUG_D3D11=1

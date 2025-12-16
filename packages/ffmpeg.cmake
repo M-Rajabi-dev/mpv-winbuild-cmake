@@ -31,9 +31,6 @@ ExternalProject_Add(ffmpeg
         --disable-filter=subtitles
         --enable-librubberband
         --enable-openssl
-        --enable-libxml2
-        --enable-libiconv
-        --enable-zlib
         --disable-doc
         --disable-ffplay
         --disable-ffprobe
@@ -57,7 +54,7 @@ ExternalProject_Add(ffmpeg
         --disable-libplacebo
         --disable-vulkan
         --disable-libshaderc
-        --extra-cflags='-Wno-error=int-conversion'
+        --extra-cflags=-Wno-error=int-conversion
     BUILD_COMMAND ${MAKE}
     INSTALL_COMMAND ${MAKE} install
     LOG_DOWNLOAD 1 LOG_UPDATE 1 LOG_CONFIGURE 1 LOG_BUILD 1 LOG_INSTALL 1

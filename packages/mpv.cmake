@@ -33,10 +33,13 @@ ExternalProject_Add(mpv
         -Dshaderc=disabled
         -Dcuda-hwaccel=disabled
         -Dcuda-interop=disabled
+        -Dgl=disabled
+        -Degl=disabled
+        -Dplain-gl=disabled
+        -Dgl-dxinterop=disabled
         -Dzimg=disabled
-        -Dlibass=disabled
-        -Dfribidi=disabled
         -Diconv=enabled
+        -Dd3d11=enabled
         -Dc_args=-DHAVE_DXGI_DEBUG_D3D11=1
     BUILD_COMMAND ${EXEC} LTO_JOB=1 PDB=1 ninja -C <BINARY_DIR>
     INSTALL_COMMAND ""

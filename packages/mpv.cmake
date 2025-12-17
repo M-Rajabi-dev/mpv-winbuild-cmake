@@ -3,6 +3,8 @@ ExternalProject_Add(mpv
         ffmpeg
         libiconv
         zlib
+        shaderc
+        spirv-cross
     GIT_REPOSITORY https://github.com/mpv-player/mpv.git
     SOURCE_DIR ${SOURCE_LOCATION}
     GIT_CLONE_FLAGS "--filter=tree:0"
@@ -27,10 +29,10 @@ ExternalProject_Add(mpv
         -Drubberband=disabled
         -Dlcms2=disabled
         -Dopenal=disabled
-        -Dspirv-cross=disabled
+        -Dspirv-cross=enabled
         -Dvulkan=disabled
         -Dvapoursynth=disabled
-        -Dshaderc=disabled
+        -Dshaderc=enabled
         -Dcuda-hwaccel=disabled
         -Dcuda-interop=disabled
         -Dgl=disabled
